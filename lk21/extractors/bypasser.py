@@ -231,7 +231,7 @@ class Bypass(BaseExtractor):
         if api is not None:
             result = {}
             raw = self.session.post(
-                "https://layarkacaxxi.icu" + api.group(1)).json()
+                "https://2tazhfx9vrx4jnvaxt87sknw5eqbd6as.club" + api.group(1)).json()
             for d in raw["data"]:
                 f = d["file"]
                 direct = self.bypass_redirect(f)
