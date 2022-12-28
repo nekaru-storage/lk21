@@ -226,7 +226,13 @@ class Bypass(BaseExtractor):
         if api is not None:
             result = {}
             raw = self.session.post(
-                "https://2tazhfx9vrx4jnvaxt87sknw5eqbd6as.club" + api.group(1)).json()
+                "{0.scheme}://{0.netloc}".format(urlparse(url)) + api.group(1),
+                data={"r": url, "d": "{0.netloc}".format(urlparse(url))},
+                headers={
+                    "Referer": url,
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                },
+            ).json()
             for d in raw["data"]:
                 f = d["file"]
                 direct = self.bypass_redirect(f)
